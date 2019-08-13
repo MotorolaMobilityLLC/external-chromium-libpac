@@ -761,7 +761,8 @@ int ProxyResolverV8::SetPacScript(const std::u16string& script_data) {
   // Use the built-in locale-aware definitions instead of the ones provided by
   // ICU. This makes things like String.prototype.toUpperCase() not be
   // undefined.
-  static const char kNoIcuCaseMapping[] = "--no-icu_case_mapping";
+  // Disable JIT
+  static const char kNoIcuCaseMapping[] = "--no-icu_case_mapping --no-opt";
   v8::V8::SetFlagsFromString(kNoIcuCaseMapping, strlen(kNoIcuCaseMapping));
 
   // Try parsing the PAC script.
