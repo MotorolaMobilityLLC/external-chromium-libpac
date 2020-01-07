@@ -37,4 +37,10 @@ cc_library_shared {
         "com.android.art.release",
         "com.android.art.debug",
     ],
+    sanitize: {
+        cfi: true,
+        diag: {
+            cfi: true,
+        },
+    },
 }
